@@ -1,4 +1,4 @@
-# React Feedback App
+# TypeScript React Feedback App
 
 Feedbacky allows users to add, update and delete feedback. It uses a mock REST api with json-server.
 
