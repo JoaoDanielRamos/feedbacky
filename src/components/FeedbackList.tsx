@@ -1,3 +1,6 @@
+// * Modules
+import { motion, AnimatePresence } from 'framer-motion';
+
 // * Components
 import FeedbackItem from './FeedbackItem';
 
@@ -18,6 +21,31 @@ export default function FeedbackList({
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback Yet</p>;
   }
+  return (
+    <div className='feedback-list'>
+      <AnimatePresence>
+        {feedback.map(item => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <FeedbackItem
+              key={item.id}
+              id={item.id}
+              rating={item.rating}
+              text={item.text}
+              handleDelete={handleDelete}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+
+  // * Without animation
+  /*
 
   return (
     <div className='feedback-list'>
@@ -32,4 +60,5 @@ export default function FeedbackList({
       ))}
     </div>
   );
+  */
 }
