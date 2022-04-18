@@ -1,5 +1,8 @@
-import Card from './shared/Card';
+// * Modules
 import { FaTimes } from 'react-icons/fa';
+
+// * Component
+import Card from './shared/Card';
 
 export default function FeedbackItem({
   rating,

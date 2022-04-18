@@ -1,8 +1,11 @@
+// * Modules
 import { useState } from 'react';
 
 export default function ({ select }: { select: any }) {
+  // * Component state that selects the rating at 10 by default
   const [selected, setSelected] = useState(10);
 
+  // * Triggers when the rating value changes
   const handleChange = (event: any) => {
     setSelected(Number(event.currentTarget.value));
     select(Number(event.currentTarget.value));

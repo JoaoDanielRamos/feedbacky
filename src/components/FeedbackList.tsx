@@ -1,5 +1,7 @@
+// * Components
 import FeedbackItem from './FeedbackItem';
 
+// * TypeScript Interface
 interface FeedbackInterface {
   rating: number;
   text: string;
