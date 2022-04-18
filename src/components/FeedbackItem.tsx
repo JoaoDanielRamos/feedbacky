@@ -1,12 +1,6 @@
 import Card from './shared/Card';
 import { FaTimes } from 'react-icons/fa';
 
-interface FeedbackInterface {
-  rating: number;
-  text: string;
-  id: number;
-}
-
 export default function FeedbackItem({
   rating,
   text,

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import FeedbackItem from './FeedbackItem';
 
 interface FeedbackInterface {
