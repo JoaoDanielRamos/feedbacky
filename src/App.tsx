@@ -11,8 +11,7 @@ function App() {
 
   const deleteFeedback = (id: number) => {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
-      const newFeedback = [...feedback];
-      setFeedback(newFeedback.filter((item: { id: number }) => item.id !== id));
+      setFeedback(feedback.filter((item: { id: number }) => item.id !== id));
     }
   };
 
