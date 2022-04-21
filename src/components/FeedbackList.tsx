@@ -1,30 +1,23 @@
 // * Modules
 import { motion, AnimatePresence } from 'framer-motion';
+import { useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
 // * Components
 import FeedbackItem from './FeedbackItem';
 
 // * TypeScript Interface
-interface FeedbackInterface {
-  rating: number;
-  text: string;
-  id: number;
-}
 
-export default function FeedbackList({
-  feedback,
-  handleDelete,
-}: {
-  feedback: FeedbackInterface[];
-  handleDelete: any;
-}) {
+export default function FeedbackList() {
+  const { feedback }: any = useContext(FeedbackContext);
+
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback Yet</p>;
   }
   return (
     <div className='feedback-list'>
       <AnimatePresence>
-        {feedback.map(item => (
+        {feedback.map((item: any) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0 }}
@@ -36,7 +29,6 @@ export default function FeedbackList({
               id={item.id}
               rating={item.rating}
               text={item.text}
-              handleDelete={handleDelete}
             />
           </motion.div>
         ))}

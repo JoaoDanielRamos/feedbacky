@@ -1,16 +1,18 @@
+import { useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
+
 interface FeedbackInterface {
   rating: number;
   text: string;
-  id: number;
+  id: number | string;
 }
 
-export default function FeedbackStats({
-  feedback,
-}: {
-  feedback: FeedbackInterface[];
-}) {
+export default function FeedbackStats() {
+  const { feedback }: any = useContext(FeedbackContext);
+
   const average: number =
-    feedback.reduce((acc, cur) => acc + cur.rating, 0) / feedback.length;
+    feedback.reduce((acc: any, cur: any) => acc + cur.rating, 0) /
+    feedback.length;
 
   // * If The average ends with 0, the regex expression will replace it with an empty string
   average.toFixed(1).replace(/[.,]0$/, '');

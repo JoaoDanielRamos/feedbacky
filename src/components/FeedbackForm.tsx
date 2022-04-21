@@ -1,16 +1,18 @@
 // * Modules
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
 // * Components
 import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 
-export default function FeedbackForm({ handleAdd }: { handleAdd: any }) {
+export default function FeedbackForm() {
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(10);
+  const { addFeedback }: any = useContext(FeedbackContext);
 
   // * Triggers whenever the input value change
   const handleTextChange = (event: any) => {
@@ -39,7 +41,7 @@ export default function FeedbackForm({ handleAdd }: { handleAdd: any }) {
         rating: rating,
       };
 
-      handleAdd(newFeedback);
+      addFeedback(newFeedback);
     }
   };
 
