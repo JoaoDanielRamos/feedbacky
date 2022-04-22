@@ -5,6 +5,12 @@ import FeedbackData from '../data/FeedbackData';
 const FeedbackContext = createContext({});
 
 export const FeedbackProvider = ({ children }: { children: any }) => {
+  const [feedback, setFeedback] = useState(FeedbackData);
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false,
+  });
+
   // * Functionality: Add a new feedback
   const addFeedback = (newFeedback: {
     text: string;
@@ -22,10 +28,18 @@ export const FeedbackProvider = ({ children }: { children: any }) => {
     }
   };
 
-  const [feedback, setFeedback] = useState(FeedbackData);
+  // * Functionality: Edit a feedback
+  const editFeedback = (item: {}) => {
+    setFeedbackEdit({
+      item: item,
+      edit: true,
+    });
+  };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, deleteFeedback, addFeedback }}>
+    <FeedbackContext.Provider
+      value={{ feedback, deleteFeedback, addFeedback, editFeedback }}
+    >
       {children}
     </FeedbackContext.Provider>
   );
