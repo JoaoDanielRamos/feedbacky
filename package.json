@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "server": "json-server --watch db.json --port 5000",
-    "dev2": "concurrently \"npm run server\" \"npm run dev\""
+    "app": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
     "axios": "^0.26.1",

@@ -1,3 +1,24 @@
 {
-  "feedback": []
+  "feedback": [
+    {
+      "text": "It was an amazing experience, we are definitely coming back!",
+      "rating": 10,
+      "id": 1
+    },
+    {
+      "text": "Food was amazing ,but the service was just ok!",
+      "rating": 8,
+      "id": 2
+    },
+    {
+      "text": "We waited more than an hour just for a carbonara that came cold.",
+      "rating": 3,
+      "id": 3
+    },
+    {
+      "text": "One of my favorite restaurants in town <3",
+      "rating": 9,
+      "id": 4
+    }
+  ]
 }
