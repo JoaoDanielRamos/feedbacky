@@ -1,15 +1,23 @@
-// Components
-import Header from './components/Header';
+// * Modules
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+// * Components
+import Header from './components/Header';
+import Home from './pages/Home';
+import About from './pages/About';
+import AboutIconLink from './components/AboutIconLink';
+
+export default function App() {
   return (
-    <div className='App'>
+    <Router>
       <Header />
       <div className='container'>
-        <h1>My app</h1>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='about' element={<About />} />
+        </Routes>
       </div>
-    </div>
+      <AboutIconLink />
+    </Router>
   );
 }
-
-export default App;
