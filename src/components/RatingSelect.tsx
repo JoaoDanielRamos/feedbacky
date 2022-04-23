@@ -1,7 +1,17 @@
 // * Modules
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
-export default function ({ select }: { select: any }) {
+import FeedbackContext from '../context/FeedbackContext';
+
+export default function ({
+  select,
+  submitted,
+}: {
+  select: any;
+  submitted: boolean;
+}) {
+  const { feedbackEdit } = useContext(FeedbackContext);
+
   // * Component state that selects the rating at 10 by default
   const [selected, setSelected] = useState(10);
 
@@ -10,6 +20,16 @@ export default function ({ select }: { select: any }) {
     setSelected(Number(event.currentTarget.value));
     select(Number(event.currentTarget.value));
   };
+
+  useEffect(() => {
+    if (feedbackEdit.edit) {
+      setSelected(feedbackEdit.item.rating);
+    }
+
+    if (submitted) {
+      setSelected(10);
+    }
+  }, [feedbackEdit, submitted]);
 
   return (
     <ul className='rating'>
