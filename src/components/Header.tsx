@@ -22,7 +22,7 @@ export default function Header({
 }
 
 Header.defaultProps = {
-  text: 'Feedback UI',
+  text: 'Feedbacky',
   bgColor: 'rgba(0,0,0,0.4',
   textColor: '#ff6a95',
 };
